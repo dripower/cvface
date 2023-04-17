@@ -1,0 +1,8 @@
+build/
+.gradle/
+gradle/
+.project
+.settings/
+cvface/src/gen/
+.classpath
+bin/
