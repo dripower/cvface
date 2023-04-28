@@ -7,4 +7,4 @@ RUN mkdir -p /opt/cvface/
 ADD ./opencv  /opt/cvface/opencv
 ADD ./CMakeLists.txt /opt/cvface/CMakeLists.txt
 WORKDIR /opt/cvface/build
-RUN source /opt/rh/devtoolset-11/enable && JAVA_INCLUDE_PATH=/usr/lib/jvm/bellsoft-java17-lite.x86_64/include/ /usr/local/cmake/bin/cmake -D BUILD_LIST="dnn,objdetect,java" .. && make && cp opencv/lib/*.so /opt/cvface && cd /opt/cvface && rm -rf build
+RUN source /opt/rh/devtoolset-11/enable && JAVA_INCLUDE_PATH=/usr/lib/jvm/bellsoft-java17-lite.x86_64/include/ /usr/local/cmake/bin/cmake .. && make && cp opencv/lib/*.so /opt/cvface && cd /opt/cvface && rm -rf build

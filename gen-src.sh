@@ -4,7 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 JAVA_SO_VERSION=470
 mkdir -p build
 cd build/
-cmake ../
+cmake -DBUILD_LIST='imgcodecs,dnn,objdetect,java' ../
 make -j 4
 LIB_PATH=$SCRIPT_DIR/cvface/src/gen/lib/opencv
 JAVA_PATH=$SCRIPT_DIR/cvface/src/gen/java/
