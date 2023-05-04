@@ -13,11 +13,11 @@ set(BUILD_TESTS OFF)
 set(BUILD_FAT_JAVA_LIB ON)
 set(BUILD_SHARED_LIBS OFF)
 set(BUILD_LIST "imgcodecs,dnn,objdetect,java" CACHE STRING "Modules to build")
+set(OPENCV_JAVA_TARGET_VERSION "11" CACHE STRING "Java target version (javac Ant target)")
+set(OPENCV_JAVA_SOURCE_VERSION "11" CACHE STRING "Java source version (javac Ant target)")
 set(WITH_TIFF OFF)
 set(WITH_SPNG OFF)
 
-add_compile_options(-Os -flto)
-
+add_compile_options(-Os)
 add_subdirectory(opencv)
-
 project(cvface_project)

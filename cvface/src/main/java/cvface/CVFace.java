@@ -18,14 +18,13 @@ import javax.imageio.ImageIO;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfByte;
+import org.opencv.imgcodecs.Imgcodecs;
 
 public class CVFace {
 
-  public static Mat bufferedImageToMat(BufferedImage bi) {
-    byte[] data = ((DataBufferByte) bi.getRaster().getDataBuffer()).getData();
-    Mat mat = new Mat(bi.getHeight(), bi.getWidth(), CvType.CV_8UC3);
-    mat.put(0, 0, data);
-    return mat;
+  public static Mat base64DecodeImg(String img) {
+    return Imgcodecs.imdecode(new MatOfByte(java.util.Base64.getDecoder().decode(img)), Imgcodecs.IMREAD_COLOR);
   }
 
   public static void loadLib() throws IOException {
@@ -52,9 +51,7 @@ public class CVFace {
       int prefixIndex = base64EncodedImg.indexOf(base64Prefix);
       int dataStartIndex = prefixIndex == -1 ? 0 : prefixIndex + base64Prefix.length();
       String imgData = base64EncodedImg.substring(dataStartIndex);
-      byte[] imgBytes = Base64.getDecoder().decode(imgData);
-      BufferedImage bi = ImageIO.read(new ByteArrayInputStream(imgBytes));
-      Mat imgMat = bufferedImageToMat(bi);
+      Mat imgMat = base64DecodeImg(imgData);
       for (int x = 0; x < imgMat.width(); x ++) {
         for (int y = 0; y < imgMat.height(); y++) {
           System.out.println("pixel at (" + x + "," + y + ") " + Arrays.toString(imgMat.get(x, y)));
