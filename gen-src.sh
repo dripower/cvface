@@ -5,7 +5,7 @@ JAVA_SO_VERSION=470
 mkdir -p build
 cd build/
 cmake -DBUILD_LIST='imgcodecs,dnn,objdetect,java' ../
-make -j 4
+cmake --build .
 LIB_PATH=$SCRIPT_DIR/cvface/src/gen/lib/opencv
 JAVA_PATH=$SCRIPT_DIR/cvface/src/gen/java/
 mkdir -p $LIB_PATH

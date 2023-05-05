@@ -16,6 +16,5 @@ A custom build of opencv 4.7.0 with objdetect, dnn (used for face recoginition).
 # What's changed ?
 
 * Only face recoginition related modules are build.
-* Build fat lib (single shared library) by default.
-* Provide simply facility load library and convert `BufferedImage` to `Mat`
+* Build fatlib (single shared library) by default.
 * Removed `finalize`, resource should be released manually.

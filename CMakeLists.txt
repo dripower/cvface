@@ -17,7 +17,11 @@ set(OPENCV_JAVA_TARGET_VERSION "11" CACHE STRING "Java target version (javac Ant
 set(OPENCV_JAVA_SOURCE_VERSION "11" CACHE STRING "Java source version (javac Ant target)")
 set(WITH_TIFF OFF)
 set(WITH_SPNG OFF)
-
-add_compile_options(-Os)
+set(WITH_OPENEXR OFF)
+set(WITH_IMGCODEC_HDR OFF)
+set(WITH_IMGCODEC_SUNRASTER OFF)
+set(WITH_IMGCODEC_PXM OFF)
+set(WITH_IMGCODEC_PFM OFF)
+add_compile_options(-Os -flto)
 add_subdirectory(opencv)
 project(cvface_project)
