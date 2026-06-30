@@ -1,4 +1,5 @@
 build/
+docker-out/
 .gradle/
 gradle/
 .project
